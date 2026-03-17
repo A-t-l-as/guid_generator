@@ -2,6 +2,7 @@
 #include "File/BinFile.hpp"
 #include "File/TextFile.hpp"
 #include "Console/Console.hpp"
+#include "Compilator/CompilatorValueTypes.hpp"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int main(int argc, char* argv[])
 
     TextFile output_txt_file;
 
-    const string guid_line = "GUID generated_guid = " + guid.ToString() + ";\n";
+    const string guid_line = string(CompilatorValueTypes::c_guid_type_str) + " generated_guid = " + guid.ToString() + ";\n";
     output_txt_file << guid_line;
 
     output_txt_file.SaveOnlyStringStream("guid.txt");
